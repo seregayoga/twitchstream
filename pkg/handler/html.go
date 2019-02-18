@@ -23,7 +23,11 @@ const (
 		<meta charset="utf-8">
 		<script>  
 			window.addEventListener("load", function(evt) {
-				var ws = new WebSocket('ws://' + document.location.host +'/events');
+				var wsProto = document.location.protocol == 'https:'
+					? 'wss:'
+					: 'ws:';
+
+				var ws = new WebSocket(wsProto + '//' + document.location.host +'/events');
 
 				var $chat = document.getElementById("chat");
 				var addToChat = function(message) {
