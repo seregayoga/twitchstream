@@ -1,0 +1,15 @@
+version: '3'
+services:
+  twitchstream:
+    build: .
+    ports:
+      - "7001:7001"
+    environment:
+      - TS_HOST=0.0.0.0
+      - TS_PORT=7001
+      - TS_CLIENTID=<your-client-id>
+      - TS_CLIENTSECRET=<your-client-secret>
+      - TS_SCOPES=user:read:email,user_read,chat:read
+      - TS_COOKIESECRET=<your-cookie-secret>
+      - TS_REDIRECTURL=http://localhost:7001/redirect
+
